@@ -9,15 +9,15 @@ test('creates a new employee', () => {
 
 test('get employee by name', () => {
     const employee = new Employee('John','1', 'john.john@gmail.com');
-    expect(employee.get('name')).toBe('John');
+    expect(employee.getName()).toEqual('John');
 })
 
 test('get employee by id', () => {
     const employee = new Employee('John','1', 'john.john@gmail.com');
-    expect(employee.get('id')).toBe('1');
+    expect(employee.getId()).toEqual('1');
 })
 
 test('get employee by email', () => {
     const employee = new Employee('John','1', 'john.john@gmail.com');
-    expect(employee.get('email')).toBe('john.john@gmail.com');
+    expect(employee.getEmail()).toEqual('john.john@gmail.com');
 })
