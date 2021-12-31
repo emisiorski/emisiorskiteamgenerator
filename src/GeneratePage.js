@@ -1,5 +1,8 @@
 module.exports = templateData => {
-    console.log(templateData);
+  const engineer = templateData[0];  
+  const manager = templateData[1];
+  const intern = templateData[2];
+  console.log(templateData);
   
     return `
     <!DOCTYPE html>
@@ -13,8 +16,8 @@ module.exports = templateData => {
     </head>
   
     <body>
-      <h1>${templateData.name}</h1>
-      <h2><a href="https://github.com/${templateData.github}">Github</a></h2>
+      <h1>${engineer.engineerName}</h1>
+      <h2><a href="https://github.com/${engineer.enginerGithub}">Github</a></h2>
     </body>
     </html>
     `;
