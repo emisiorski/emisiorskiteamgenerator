@@ -9,7 +9,7 @@ let generateManagerCard = (manager) => {
 return `
 <div class='box is-two-fifths">
 <div class=''>
-    <h1 class='title'>${manager.getName()}</h1><br>
+    <h1 class='title'>${manager.managerName()}</h1><br>
     <h2 class='subtitle'>${manager.getRole()}</h2>
 </div>
 <div class='box'>
