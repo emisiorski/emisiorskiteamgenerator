@@ -62,8 +62,7 @@ let generateInternCard = (intern) => {
 }
 generateInternCard();
 
-function generateTeam(team) {
-  console.log(team);
+let generateTeam = () => {
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
@@ -90,5 +89,3 @@ function generateTeam(team) {
 }
 generateTeam();
 }
-
-module.exports = generateTeam;
