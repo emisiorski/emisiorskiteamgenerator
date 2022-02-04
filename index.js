@@ -1,10 +1,10 @@
 const inquirer = require('inquirer');
-const generatePage = require('./src/GeneratePage');
+const generatePage = require('./src/GeneratePage.js');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const intern = require('./lib/Intern.js');
 const employee = require('./lib/Employee.js');
-
+const fs = require('fs');
 
 function generateTeamPage() {
     console.log('Please enter required team information to generate your Team Profile');

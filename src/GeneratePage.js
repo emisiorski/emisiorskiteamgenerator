@@ -1,69 +1,71 @@
+
 module.exports = templateData => {
   const engineer = templateData[0];
   const manager = templateData[1];
   const intern = templateData[2];
+  const team = [engineer, manager, intern];
   console.log(templateData);
 
 
-let generateManagerCard = (manager) => {
-return `
-<div class='box is-two-fifths">
-<div class=''>
-    <h1 class='title'>${manager.managerName()}</h1><br>
-    <h2 class='subtitle'>${manager.getRole()}</h2>
-</div>
-<div class='box'>
-    <ul class=''>
-        <li class='box'>ID: ${manager.getId()}</li>
-        <li class='box'>Email: <a href="mailto:${manager.getEmail()}">${manager.getEmail()}</a></li>
-        <li class='box'>Office Number: ${manager.getOfficeNumber()}</li>
-    </ul>
-</div>
-</div>
-`
-}
-generateManagerCard();
-
-let generateEngineerCard = (engineer) => {
-  return `
+  let generateManagerCard = (manager) => {
+    return `
   <div class='box is-two-fifths">
   <div class=''>
-      <h1 class='title'>${engineer.getName()}</h1><br>
-      <h2 class='subtitle'>${engineer.getRole()}</h2>
+    <h1 class='title'>${manager.managerName}</h1><br>
+    <h2 class='subtitle'>${manager.managerRole}</h2>
   </div>
-  <div class=''>
-      <ul class='box'>
-          <li class='box'>ID: ${engineer.getId()}</li>
-          <li class='box'>Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()} </a></li>
-          <li class='box'>gitHub: <a href="https://github.com/${engineer.getGitHub()}" target="_blank">${engineer.getGitHub()}</a></li>
-      </ul>
+  <div class='box'>
+    <ul class=''>
+        <li class='box'>ID: ${manager.managerId}</li>
+        <li class='box'>Email: <a href="mailto:${manager.managerEmail}">${manager.managerEmail}</a></li>
+        <li class='box'>Office Number: ${manager.managerOffice}</li>
+    </ul>
   </div>
-</div>
-  `
-}
-generateEngineerCard();
+  </div>
+`
+  }
+  var managerString = generateManagerCard(manager);
 
-let generateInternCard = (intern) => {
-  return `
+  let generateEngineerCard = (engineer) => {
+    return `
+    <div class='box is-two-fifths">
+    <div class=''>
+      <h1 class='title'>${engineer.engineerName}</h1><br>
+      <h2 class='subtitle'>${engineer.engineerRole}</h2>
+    </div>
+    <div class=''>
+      <ul class='box'>
+          <li class='box'>ID: ${engineer.engineerId}</li>
+          <li class='box'>Email: <a href="mailto:${engineer.engineerEmail}">${engineer.engineerEmail} </a></li>
+          <li class='box'>gitHub: <a href="https://github.com/${engineer.engineerGithub}" target="_blank">${engineer.engineerGithub}</a></li>
+      </ul>
+    </div>
+  </div>
+  `
+  }
+  var engineerString = generateEngineerCard(engineer);
+
+  let generateInternCard = (intern) => {
+    return `
   <div class='box is-two-fifths">
       <div class=''>
-          <h1 class='title'>${intern.getName()}</h1><br>
-          <h2 class='subtitle'>${intern.getRole()}</h2>
+          <h1 class='title'>${intern.internName}</h1><br>
+          <h2 class='subtitle'>${intern.internRole}</h2>
       </div>
       <div class=''>
           <ul class='list-group'>
-              <li class='box'>ID: ${intern.getId()}</li>
-              <li class='box'>Email: <a href="mailto:${intern.getEmail()}">${Intern.getEmail()}</a></li>
-              <li class='box'>School: ${intern.getSchool()}</li>
+              <li class='box'>ID: ${intern.internId}</li>
+              <li class='box'>Email: <a href="mailto:${intern.internEmail}">${intern.internEmail}</a></li>
+              <li class='box'>School: ${intern.internSchool}</li>
           </ul>
       </div>
   </div>
   `
-}
-generateInternCard();
+  }
+  var internString = generateInternCard(intern);
 
-let generateTeam = () => {
-  return `<!DOCTYPE html>
+  let generateTeam = (team) => {
+    return `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -80,12 +82,13 @@ let generateTeam = () => {
     </div>
   </div>
   <div class="box">
-  ${generateManagerCard}
-  ${generateEngineerCard}
-  ${generateInternCard}
+  ${managerString}
+  ${engineerString}
+  ${internString}
   </div>
   </body>
   </html>`
-}
-generateTeam();
+  }
+ var teamString = generateTeam(team);
+ return teamString;
 }
