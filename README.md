@@ -17,7 +17,9 @@ A command line application that will allow users to generate a profile of team m
 
 
 ### Link: 
-`http://github.com/emisiorski/emisiorskiteamgenerator`
+[Link to github](http://github.com/emisiorski/emisiorskiteamgenerator)
+
+[Link to video](https://watch.screencastify.com/v/p3DOXDeM89LQokgJMpYs)
 
 ### Usage:
 
