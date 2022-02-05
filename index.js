@@ -2,8 +2,8 @@ const inquirer = require('inquirer');
 const generatePage = require('./src/GeneratePage.js');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
-const intern = require('./lib/Intern.js');
-const employee = require('./lib/Employee.js');
+const Intern = require('./lib/Intern.js');
+const Employee = require('./lib/Employee.js');
 const fs = require('fs');
 
 function generateTeamPage() {
@@ -77,17 +77,24 @@ function generateTeamPage() {
                         message: 'What is your intern school name? (Required)'
                     }
                 ]).then(internData => {
-                    engineerData.engineerRole = 'engineer';
-                    managerData.managerRole = 'manager';
-                    internData.internRole = 'intern';
+                    engineerData.engineerRole = 'Engineer';
+                    managerData.managerRole = 'Manager';
+                    internData.internRole = 'Intern';
                     const employeeData = [engineerData, managerData, internData];
                     const HTMLstring = generatePage(employeeData);
                     console.log(HTMLstring);
+                    writeToFile('./dist/index.html', HTMLstring);
                 })
             })
         })
     }
     createEngineer();
 }
-generateTeamPage();
-
+generateTeamPage()
+    
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) => {
+        if (err) throw err;
+        console.log('File saved.');
+    })
+}
